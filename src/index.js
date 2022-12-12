@@ -16,7 +16,7 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 
-const queryObj = {
+const fetchImages = {
   perPage: 40,
   query: '',
   page: 1,
@@ -50,17 +50,17 @@ function searchPictures(event) {
   if (query === '') {
     return;
   }
-  queryObj.setPage(1);
-  queryObj.setQuery(query);
-  getPictures(queryObj.returnUrl());
+  fetchImages.setPage(1);
+  fetchImages.setQuery(query);
+  getPictures(fetchImages.returnUrl());
 }
 
 searchForm.addEventListener('submit', searchPictures);
 buttonLoadMore.addEventListener('click', loadMore);
 
 function loadMore() {
-  queryObj.nextPage();
-  getPictures(queryObj.returnUrl());
+  fetchImages.nextPage();
+  getPictures(fetchImages.returnUrl());
 }
 
 async function getPictures(url) {
@@ -79,7 +79,7 @@ async function getPictures(url) {
     //   Notify.info("We're sorry, but you've reached the end of search results.");
     //   // buttonLoadMore.classList.add('block');
     // }
-    if (queryObj.page === 1) {
+    if (fetchImages.page === 1) {
       Notify.info(`Hooray! We found ${response.data.totalHits} images.`);
     }
     buttonLoadMoreState('block');
