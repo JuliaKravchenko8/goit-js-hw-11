@@ -11,7 +11,7 @@ const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
 const buttonLoadMore = document.querySelector('.load-more');
 
-const lightbox = new SimpleLightbox('.gallery a', {
+const lightboxGallery = new SimpleLightbox('.gallery a', {
   captions: true,
   captionDelay: 250,
 });
@@ -67,7 +67,7 @@ async function getPictures(url) {
   try {
     const response = await axios.get(url);
     const images = response.data.hits;
-    // let totalPages = Math.ceil(totalHits / 40);
+    // let totalPages = Math.ceil(response.data.totalHits / 40);
 
     if (images.length === 0) {
       Notify.failure(
@@ -75,17 +75,13 @@ async function getPictures(url) {
       );
       return;
     }
-    // if (totalPages <= page) {
-    //   Notify.info("We're sorry, but you've reached the end of search results.");
-    //   // buttonLoadMore.classList.add('block');
-    // }
     if (fetchImages.page === 1) {
       Notify.info(`Hooray! We found ${response.data.totalHits} images.`);
+      buttonLoadMoreState('block');
     }
-    buttonLoadMoreState('block');
     gallery.insertAdjacentHTML('beforeend', createPhotosHtml(images));
     scroll();
-    lightbox.refresh();
+    lightboxGallery.refresh();
   } catch (error) {
     Notify.failure(error);
   }
