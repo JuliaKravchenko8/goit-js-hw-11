@@ -97,7 +97,6 @@ img {
 }
 
 .image-link {
-  // border: 1px solid gray;
   display: block;
   max-width: 400px;
   height: 260px;
@@ -110,16 +109,14 @@ img {
   display: flex;
   flex-direction: column;
   border-radius: 5px;
-  // box-shadow: 1px 4px 3px -1px rgba(34, 60, 80, 0.2);
   box-shadow: 0px 3px 3px 1px rgba(34, 60, 80, 0.2);
-  // border-bottom: 1px solid rgba(34, 60, 80, 0.2);
 }
 
 .load-more {
   display: none;
   margin: 30px auto;
   padding: 15px 35px;
-  background-color: #2252ee;
+  background-color: #ee8f22;
   border: none;
   border-radius: 7px;
   font-size: 22px;
@@ -130,5 +127,5 @@ img {
 }
 
 .load-more:hover {
-  background-color: #335de9;
+  background-color: #e95a33;
 }

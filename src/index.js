@@ -2,8 +2,9 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
+const API = '31983214-2696166acee282192c021d74b';
+
 const axios = require('axios').default;
-const APIKEY = '31983214-2696166acee282192c021d74b';
 const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
 const buttonLoadMore = document.querySelector('.load-more');
@@ -18,7 +19,7 @@ const queryObj = {
   query: '',
   page: 1,
   returnUrl() {
-    return `https://pixabay.com/api/?key=${APIKEY}&q=${this.query}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${this.perPage}&page=${this.page}`;
+    return `https://pixabay.com/api/?key=${API}&q=${this.query}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${this.perPage}&page=${this.page}`;
   },
   nextPage() {
     this.page += 1;
