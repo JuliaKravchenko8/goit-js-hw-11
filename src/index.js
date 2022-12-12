@@ -2,7 +2,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { createPhotosHtml } from './js/image-create';
-import scroll from './js/scroll';
+import { scroll } from './js/scroll';
 
 const API = '31983214-2696166acee282192c021d74b';
 
