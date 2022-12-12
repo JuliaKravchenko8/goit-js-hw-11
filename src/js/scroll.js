@@ -1,5 +1,5 @@
 export function scroll() {
-  if (queryObj.page !== 1) {
+  if (fetchImages.page !== 1) {
     let { height: cardHeight } = document
       .querySelector('.gallery')
       .firstElementChild.getBoundingClientRect();
