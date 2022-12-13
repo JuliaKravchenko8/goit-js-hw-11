@@ -67,7 +67,13 @@ async function getPictures(url) {
   try {
     const response = await axios.get(url);
     const images = response.data.hits;
-    // let totalPages = Math.ceil(response.data.totalHits / 40);
+
+    // delete load more
+    let totalPages = Math.ceil(response.data.totalHits / 40);
+    if (images.length <= totalPages) {
+      buttonLoadMoreState('none');
+      return;
+    }
 
     if (images.length === 0) {
       Notify.failure(
