@@ -3,7 +3,6 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { scroll } from './js/scroll';
 import { createPhotosHtml } from './js/create-photos';
-import { fetchImages } from './js/fetch-images';
 
 const API = '31983214-2696166acee282192c021d74b';
 
@@ -16,6 +15,24 @@ const lightboxGallery = new SimpleLightbox('.gallery a', {
   captions: true,
   captionDelay: 250,
 });
+
+const fetchImages = {
+  perPage: 40,
+  query: '',
+  page: 1,
+  returnUrl() {
+    return `https://pixabay.com/api/?key=${API}&q=${this.query}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${this.perPage}&page=${this.page}`;
+  },
+  nextPage() {
+    this.page += 1;
+  },
+  setQuery(query) {
+    this.query = query;
+  },
+  setPage(page) {
+    this.page = page;
+  },
+};
 
 function clearGallery() {
   gallery.innerHTML = '';
