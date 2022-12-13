@@ -118,7 +118,8 @@ img {
 }
 
 .load-more {
-  display: none;
+  display: flex;
+  align-items: center;
   margin: 30px auto;
   padding: 15px 35px;
   background-color: #ffd4a9;
@@ -133,4 +134,8 @@ img {
 
 .load-more:hover {
   background-color: #e19b85;
+}
+
+.hidden {
+  display: none;
 }
