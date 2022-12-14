@@ -27,9 +27,9 @@ refs.loadMoreBtn.addEventListener('click', onLoadMore);
 
 async function onSearch(e) {
   e.preventDefault();
-
+  cleanMarkup();
   searchQuery = e.currentTarget.searchQuery.value.trim();
-
+  lockLoadMoreBtn();
   if (searchQuery === '') {
     cleanMarkup();
     lockLoadMoreBtn();
